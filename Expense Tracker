@@ -1,0 +1,125 @@
+
+import pandas as pd
+import os
+from datetime import datetime
+
+# Define file path for storing expenses
+EXPENSES_FILE = "expenses.csv"
+
+# Function to load expenses from CSV file
+def load_expenses():
+    """Load expenses from CSV file or create empty DataFrame if file doesn't exist"""
+    if os.path.exists(EXPENSES_FILE):
+        return pd.read_csv(EXPENSES_FILE)
+    else:
+        # Create empty DataFrame with appropriate columns
+        return pd.DataFrame(columns=["Date", "Category", "Description", "Amount"])
+
+# Function to save expenses to CSV file
+def save_expenses(df):
+    """Save expenses DataFrame to CSV file"""
+    df.to_csv(EXPENSES_FILE, index=False)
+
+# Function to add a new expense
+def add_expense(df):
+    """Add a new expense to the tracker"""
+    print("\nAdd New Expense")
+    
+    # Get expense details from user
+    date_str = input("Date (YYYY-MM-DD): ").strip()
+    try:
+        # Validate date format
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+        date = date_obj.strftime("%Y-%m-%d")
+    except ValueError:
+        print("Invalid date format. Using today's date.")
+        date = datetime.now().strftime("%Y-%m-%d")
+    
+    category = input("Category: ").strip()
+    description = input("Description: ").strip()
+    
+    # Get and validate amount
+    try:
+        amount = float(input("Amount: ").strip())
+    except ValueError:
+        print("Invalid amount. Please enter a number.")
+        return
+    
+    # Create new expense as DataFrame
+    new_expense = pd.DataFrame({
+        "Date": [date],
+        "Category": [category],
+        "Description": [description],
+        "Amount": [amount]
+    })
+    
+    # Update the dataframe and save
+    updated_df = pd.concat([df, new_expense], ignore_index=True)
+    save_expenses(updated_df)
+    print("Expense added successfully!")
+
+# Function to display all expenses
+def view_expenses():
+    """Shows all recorded expenses"""
+    df = load_expenses()
+    if df.empty:
+        print("No expenses recorded yet.")
+    else:
+        print(df.to_string(index=False))
+
+# Generate expense reports
+def generate_report():
+    # Load expense data
+    df = load_expenses()
+    if df.empty:
+        print("No expenses to report.")
+        return
+    
+    # Convert date strings to datetime objects
+    df['Date'] = pd.to_datetime(df['Date'])
+    
+    # Show report options
+    print("\n1. Total by Category")
+    print("2. Monthly Summary")
+    choice = input("Choose report type (1 or 2): ").strip()
+    
+    # Generate the selected report
+    if choice == '1':
+        category_totals = df.groupby('Category')['Amount'].sum()
+        print("\nTotal Expenses by Category:")
+        print(category_totals)
+    elif choice == '2':
+        df['Month'] = df['Date'].dt.to_period('M')
+        monthly_totals = df.groupby('Month')['Amount'].sum()
+        print("\nMonthly Expense Summary:")
+        print(monthly_totals)
+    else:
+        print("Invalid choice.")
+
+# Main program function
+def main():
+    while True:
+        # Display menu
+        print("\nPersonal Finance Tracker")
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Generate Report")
+        print("4. Exit")
+        choice = input("Choose an option: ").strip()
+        
+        # Process user choice
+        if choice == '1':
+            df = load_expenses()
+            add_expense(df)
+        elif choice == '2':
+            view_expenses()
+        elif choice == '3':
+            generate_report()
+        elif choice == '4':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid option. Try again.")
+
+if __name__ == "__main__":
+    main()
