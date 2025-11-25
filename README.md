@@ -7,7 +7,7 @@ Submitted by: (Your Name – College/University)**
 
 ---
 
-⿡ ##  **Introduction**
+  **Introduction**
 
 Managing daily expenses is important to maintain financial stability. Many students struggle to track where their money goes. This project solves that problem by developing a Personal Finance Tracker using Python.
 It stores transaction data (date, category, description, amount) in a CSV file, which makes it lightweight, portable, and easy to update.
