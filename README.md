@@ -1,13 +1,13 @@
 
 
-Title: Personal Finance Tracker using Python and CSV Storage
+##  **Title: Personal Finance Tracker using Python and CSV Storage
 Course: (You can fill your course/subject name)
-Submitted by: (Your Name – College/University)
+Submitted by: (Your Name – College/University)**
 
 
 ---
 
-⿡ Introduction
+⿡ ##  **Introduction**
 
 Managing daily expenses is important to maintain financial stability. Many students struggle to track where their money goes. This project solves that problem by developing a Personal Finance Tracker using Python.
 It stores transaction data (date, category, description, amount) in a CSV file, which makes it lightweight, portable, and easy to update.
@@ -15,7 +15,7 @@ It stores transaction data (date, category, description, amount) in a CSV file, 
 
 ---
 
-⿢ Objectives
+⿢  ##  **Objectives**
 
 ✔ Record daily expenses conveniently
 ✔ Display previously recorded transactions
@@ -26,7 +26,7 @@ It stores transaction data (date, category, description, amount) in a CSV file, 
 
 ---
 
-⿣ Features
+⿣  ##  **Features**
 
 Feature	Description
 
@@ -40,7 +40,7 @@ Error Handling	Validates date and amount format
 
 ---
 
-⿤ Software & Libraries Used
+⿤ ##  **Software & Libraries Used**
 
 Software / Library	Purpose
 
@@ -53,7 +53,7 @@ datetime	Date validation
 
 ---
 
-⿥ Code Description (Summary)
+⿥ ##  **Code Description (Summary)**
 
 load_expenses(): Reads data from CSV file
 
@@ -71,7 +71,7 @@ main(): Runs the entire menu-driven program
 
 ---
 
-⿦ Workflow Diagram (Flowchart Style)
+⿦ ##  **Workflow Diagram (Flowchart Style)**
 
         ┌────────────┐
         | Start      |
@@ -96,7 +96,7 @@ main(): Runs the entire menu-driven program
 
 ---
 
-⿧ Output Screens (Console)
+⿧ ##  **Output Screens (Console)**
 
 Menu-based interface
 
@@ -108,7 +108,7 @@ Provides summary reports
 
 ---
 
-⿨ Applications
+⿨  ##  **Applications**
 
 📌 Useful for students, households, freelancers
 📌 Can be extended into a GUI or mobile app
@@ -117,7 +117,7 @@ Provides summary reports
 
 ---
 
-⿩ Conclusion
+⿩  ## **Conclusion**
 
 This project successfully provides a simple and effective financial tracking system.
 It gives users better awareness of spending patterns and supports smart financial decisions.
@@ -128,19 +128,19 @@ Future improvements could include charts, user authentication, and database stor
 
 📎 README.md (Project Documentation)
 
-# Personal Finance Tracker (Python + CSV)
+## **Personal Finance Tracker (Python + CSV)**
 
 A simple command-line based Personal Finance Tracker that helps you record expenses, 
 view your spending history and generate reports using CSV storage.
 
-## 📌 Features
+## **📌 Features**
 - Add daily expenses with date, category, description & amount
 - Display all recorded expenses
 - Category-wise and Monthly expense reports
 - Persistent data stored in a CSV file
 - Error handling for correct date and amount format
 
-## 🛠 Requirements
+## **🛠 Requirements**
 Install the necessary Python libraries before running:
 ```bash
 pip install pandas
@@ -151,7 +151,7 @@ Just execute the main Python script:
 
 python main.py
 
-📂 File Structure
+##  **📂 File Structure**
 
 project-folder/
 │
@@ -159,7 +159,7 @@ project-folder/
 ├─ expenses.csv       # Auto-created database file
 └─ README.md          # Documentation
 
-🧮 Functional Overview
+##  **🧮 Functional Overview**
 
 add_expense() → Add new transaction
 
@@ -170,7 +170,7 @@ generate_report() → Summarize expenses by category / month
 load_expenses() / save_expenses() → Manage CSV storage
 
 
-🚀 Future Enhancements
+##   **🚀 Future Enhancements**
 
 Graphical User Interface (GUI - Tkinter/PyQt)
 
@@ -181,7 +181,7 @@ Data visualization charts
 Export reports in PDF/Excel
 
 
-👨‍💻 Author
+##  **👨‍💻 Author**
 
 HARSHVARDHAN TAILOR 
 VIT
