@@ -1,5 +1,3 @@
-Here is a README file for your Personal Finance Tracker Python code:
-
 ***
 
 # Personal Finance Tracker
