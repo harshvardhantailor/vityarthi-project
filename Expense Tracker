@@ -1,6 +1,6 @@
-
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
 from datetime import datetime
 def load_expenses():
     if os.path.exists('expenses.csv'):
@@ -54,14 +54,44 @@ def generate_report():
         print(monthly_totals)
     else:
         print("Invalid choice.")
+def visualize_data():
+    df = load_expenses()
+    if df.empty:
+        print("No data to visualize.")
+        return
+    category_totals = df.groupby('Category')['Amount'].sum()
+    plt.figure(figsize=(8, 6))
+    plt.pie(category_totals, labels=category_totals.index, autopct='%1.1f%%', startangle=140)
+    plt.title('Expense Distribution by Category')
+    plt.axis('equal')
+    print("\nGenerating visual chart window...")
+    plt.show()
+def statistical_analysis():
+    df = load_expenses()
+    if df.empty:
+        print("No data for analysis.")
+        return
+    print("\n--- Statistical Analysis ---")
+    total_spent = df['Amount'].sum()
+    average_spent = df['Amount'].mean()
+    max_expense = df.loc[df['Amount'].idxmax()]
+    min_expense = df.loc[df['Amount'].idxmin()]
+    print(f"Total Expenditure: ${total_spent:.2f}")
+    print(f"Average Transaction: ${average_spent:.2f}")
+    print(f"Highest Single Expense: ${max_expense['Amount']} ({max_expense['Category']} - {max_expense['Description']})")
+    print(f"Lowest Single Expense: ${min_expense['Amount']} ({min_expense['Category']})")
+    print("----------------------------")
 def main():
     while True:
         print("\nPersonal Finance Tracker")
         print("1. Add Expense")
         print("2. View Expenses")
         print("3. Generate Report")
-        print("4. Exit")
-        choice = input("Choose an option: ").strip()
+        # New Menu Options
+        print("4. Visual Analytics (Charts)") 
+        print("5. Statistical Analysis")
+        print("6. Exit")     
+        choice = input("Choose an option: ").strip()     
         if choice == '1':
             df = load_expenses()
             add_expense(df)
@@ -70,10 +100,15 @@ def main():
         elif choice == '3':
             generate_report()
         elif choice == '4':
+            visualize_data()
+        elif choice == '5':
+            statistical_analysis()
+        elif choice == '6':
             print("Goodbye!")
             break
         else:
             print("Invalid option. Try again.")
-
 if __name__ == "__main__":
     main()
+
+    
