@@ -32,15 +32,15 @@ The project focuses on individual users and simple expense tracking, not on full
 
 ##  **System Overview**  
 
-#  *Data Loading (`load_expenses`)*  
+###  *Data Loading (`load_expenses`)*  
 - Checks if `expenses.csv` exists.  
 - If it exists, loads the file into a pandas DataFrame.  
 - If it does not exist, creates an empty DataFrame with columns: Date, Category, Description, and Amount.  
 
-#  *Data Saving (`save_expenses`)*  
+###  *Data Saving (`save_expenses`)*  
 - Takes a DataFrame as input and writes it to `expenses.csv` without the index column, ensuring persistent storage.  
 
-# *Adding a New Expense (`add_expense`)*  
+### *Adding a New Expense (`add_expense`)*  
 - Prompts the user to enter:  
   - Date (YYYY-MM-DD format).  
   - Category (e.g., Food, Travel, Bills).  
@@ -50,18 +50,18 @@ The project focuses on individual users and simple expense tracking, not on full
 - Saves updated data back to the CSV.  
 - Confirms success with a message.  
 
-#  *Viewing All Expenses (`view_expenses`)*  
+###  *Viewing All Expenses (`view_expenses`)*  
 - Loads current data.  
 - Displays a message if empty; else prints the full DataFrame clearly without indices.  
 
-#  *Generating Reports (`generate_report`)*  
+###  *Generating Reports (`generate_report`)*  
 - Converts Date to datetime.  
 - Offers two report options:  
   - Total by Category (sum by category).  
   - Monthly Summary (sum by month).  
 - Displays report in console.  
 
-#  *Main Menu Loop (`main`)*  
+###  *Main Menu Loop (`main`)*  
 - Text-based menu with four choices: Add Expense, View Expenses, Generate Report, Exit.  
 - Loops until exit.  
 - Routes user selections to functions, validates input.  
@@ -83,3 +83,4 @@ The project focuses on individual users and simple expense tracking, not on full
   - More detailed reporting.  
 
   - Database storage and GUI/web interface.  
+
